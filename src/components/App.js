@@ -5,9 +5,27 @@ import {
   Link
 } from 'react-router-dom'
 
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger'
+import rootReducer from '../data/rootReducer';
+import { Provider } from 'react-redux';
+
 import Home from './Home';
 import About from './About';
 import Single from './Single';
+
+const initialState = {
+  home: 'home',
+  about: 'about',
+  single: 'single'
+};
+
+const store = createStore(
+  rootReducer,
+  initialState,
+  applyMiddleware(logger)
+);
+
 
 class App extends React.Component {
   constructor(props) {
@@ -16,21 +34,21 @@ class App extends React.Component {
 
   render() {
     return(
-      <Router>
-        <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/single/2">Single 2</Link></li>
-          </ul>
-
-          <hr/>
-
-          <Route exact path="/" component={Home}/>
-          <Route path="/about" component={About}/>
-          <Route path="/single/:id" component={Single}/>
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/single/2">Single 2</Link></li>
+            </ul>
+            <hr/>
+            <Route exact path="/" component={Home}/>
+            <Route path="/about" component={About}/>
+            <Route path="/single/:id" component={Single}/>
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }
