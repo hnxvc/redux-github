@@ -17,7 +17,7 @@ import Single from './Single';
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk,logger)
+  applyMiddleware(thunk, logger)
 );
 
 
