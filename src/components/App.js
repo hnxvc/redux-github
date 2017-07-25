@@ -34,7 +34,6 @@ class App extends React.Component {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About</Link></li>
-              <li><Link to="/single/2">Single 2</Link></li>
             </ul>
             <hr/>
             <Route exact path="/" component={Home}/>

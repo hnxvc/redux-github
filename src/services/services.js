@@ -4,3 +4,10 @@ export const getPosts = (successCallback, errorCallback) => {
   .then(response => successCallback(response))
   .catch(error => errorCallback(errorCallback));
 }
+
+export const getAbout = (successCallback, errorCallback) => {
+  fetch('data/about.json')
+  .then(response => response.json())
+  .then(response => successCallback(response))
+  .catch(error => errorCallback(errorCallback));
+}
