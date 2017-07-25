@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { getPosts } from '../actions/actions';
 
 class Home extends React.Component {
   constructor(props) {
@@ -7,7 +9,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.props.demoDispatch();
+    this.props.getPosts();
   }
 
   render() {
@@ -19,15 +21,21 @@ class Home extends React.Component {
   }
 }
 
+Home.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+}
+
 const mapStateToProps = (state) => {
   return {
-    home: state.home
+    state
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    demoDispatch: () => dispatch({type :'HIHIH'})
+    getPosts: () => {
+      dispatch(getPosts())
+    }
   }
 }
 

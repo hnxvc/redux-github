@@ -8,22 +8,16 @@ import {
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger'
 import rootReducer from '../data/rootReducer';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import Home from './Home';
 import About from './About';
 import Single from './Single';
 
-const initialState = {
-  home: 'home',
-  about: 'about',
-  single: 'single'
-};
-
 const store = createStore(
   rootReducer,
-  initialState,
-  applyMiddleware(logger)
+  applyMiddleware(thunk,logger)
 );
 
 
