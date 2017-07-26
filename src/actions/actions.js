@@ -28,7 +28,7 @@ export const getPosts = () => {
 export const getPost = (id) => {
   return dispatch => {
     dispatch({
-      type: actionTypes.GET_POST_LOADING
+      type: actionTypes.GET_POST_LOADING,
     });
 
     services.getPost(

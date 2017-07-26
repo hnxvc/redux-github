@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAbout, getPost } from '../actions/actions';
+import { getAbout } from '../actions/actions';
 import * as Selectors from '../data/selectors';
 import { withRouter } from 'react-router-dom';
 

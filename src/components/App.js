@@ -43,7 +43,7 @@ class App extends React.Component {
             <hr/>
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About}/>
-            <Route path="/single" component={Single}/>
+            <Route path="/single/:id" component={Single}/>
           </div>
         </Router>
       </Provider>

@@ -17,7 +17,7 @@ class Home extends React.Component {
   render() {
     let posts = this.props.posts.map(post => (
       <li key={post.id}>
-        <h3><Link to={"/single"}>{post.title}</Link></h3>
+        <h3><Link to={"/single/"+post.id}>{post.title}</Link></h3>
         <p>{post.excerpt}</p>
         <small>{post.author}</small>
       </li>

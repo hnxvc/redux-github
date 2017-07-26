@@ -9,7 +9,7 @@ class Single extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    this.props.getPost();
+    this.props.getPost(id);
   }
 
   render() {
@@ -27,8 +27,8 @@ class Single extends React.Component {
 
 
 Single.propTypes = {
-  post: React.PropTypes.object.isRequired,
-  getPost: React.PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired,
+  getPost: PropTypes.func.isRequired,
 };
 
 
