@@ -6,18 +6,23 @@ import {
 } from 'react-router-dom'
 
 import { createStore, applyMiddleware } from 'redux';
-import logger from 'redux-logger'
+import { createLogger } from 'redux-logger'
 import rootReducer from '../data/rootReducer';
-import thunk from 'redux-thunk';
+import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import Home from './Home';
 import About from './About';
 import Single from './Single';
 
+const loggerMiddleware = createLogger({
+  // turn Immutable state into ordinary JS before logging it
+  stateTransformer: obj => obj.toJS()
+});
+
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk, logger)
+  applyMiddleware(thunkMiddleware, loggerMiddleware)
 );
 
 
