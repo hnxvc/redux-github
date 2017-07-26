@@ -25,6 +25,31 @@ export const getPosts = () => {
   }
 }
 
+export const getPost = (id) => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.GET_POST_LOADING
+    });
+
+    services.getPost(
+      id,
+      data => {
+        dispatch({
+          type: actionTypes.GET_POST_LOADED,
+          data: data
+        })
+      },
+
+      error => {
+        dispatch({
+          type: actionTypes.GET_POST_ERROR,
+          error: error
+        });
+      }
+    );
+  }
+}
+
 export const getAbout = () => {
   return dispatch => {
     dispatch({

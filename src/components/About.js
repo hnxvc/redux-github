@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAbout } from '../actions/actions';
+import { getAbout, getPost } from '../actions/actions';
 import * as Selectors from '../data/selectors';
 
 class About extends React.Component {
@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAbout: () => dispatch(getAbout())
+    getAbout: () => dispatch(getAbout()),
   }
 }
 
