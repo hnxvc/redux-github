@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux-immutable';
-import { posts } from './posts/posts';
-import { post } from './post/post';
-import { about } from './about/about';
+import { posts } from './posts/postsReducer';
+import { post } from './post/postReducer';
+import { about } from './about/aboutReducer';
 
 const rootReducer = combineReducers({
   posts,

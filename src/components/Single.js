@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getPost } from '../actions/actions';
 import * as Selectors from '../data/selectors';
+import { withRouter } from 'react-router-dom';
 
 class Single extends React.Component {
 
@@ -43,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Single);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Single));

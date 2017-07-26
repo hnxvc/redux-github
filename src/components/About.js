@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAbout, getPost } from '../actions/actions';
 import * as Selectors from '../data/selectors';
+import { withRouter } from 'react-router-dom';
 
 class About extends React.Component {
 
@@ -38,4 +39,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(About);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(About));

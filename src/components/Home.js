@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions/actions';
 import * as Selectors from '../data/selectors';
-import { Link } from 'react-router-dom';
+import { Link, withRouter} from 'react-router-dom';
 
 class Home extends React.Component {
   constructor(props) {
@@ -51,6 +51,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(Home);
-
-export default HomeContainer;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));
