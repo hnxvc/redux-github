@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getPost } from '../actions/actions';
 import * as Selectors from '../data/selectors';
 import { withRouter } from 'react-router-dom';
+import * as Services from '../services/services';
 
 class Single extends React.Component {
 
