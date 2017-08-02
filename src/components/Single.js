@@ -19,7 +19,7 @@ class Single extends React.Component {
       <div className="single">
         <h3>{repo.name}</h3>
         <p>{repo.description}</p>
-        <a href={repo.html_url}>{repo.name}</a>
+        <a href={repo.html_url} target="_blank">{repo.name}</a>
       </div>
     );
   }
