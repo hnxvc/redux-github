@@ -1,20 +1,19 @@
-export const getPosts = (successCallback, errorCallback) => {
-  fetch('data/posts.json')
+export const getRepos = (successCallback, errorCallback) => {
+  fetch('https://api.github.com/users/hoanx94/repos')
   .then(response => response.json())
   .then(response => successCallback(response))
   .catch(error => errorCallback(error));
 }
 
-export const getPost = (id, successCallback, errorCallback) => {
-  fetch('data/single.json')
+export const getRepo = (id, successCallback, errorCallback) => {
+  fetch('https://api.github.com/repos/hoanx94/'+id)
   .then(response => response.json())
   .then(response => successCallback(response))
   .catch(error => errorCallback(error));
 }
-
 
 export const getAbout = (successCallback, errorCallback) => {
-  fetch('data/about.json')
+  fetch('https://api.github.com/users/hoanx94')
   .then(response => response.json())
   .then(response => successCallback(response))
   .catch(error => errorCallback(error));

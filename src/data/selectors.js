@@ -1,3 +1,3 @@
-export const posts = (state) => state.get('posts');
-export const post = (state) => state.get('post');
+export const repos = (state) => state.get('repos');
+export const repo = (state) => state.get('repo');
 export const about = (state) => state.get('about');

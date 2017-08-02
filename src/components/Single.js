@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getPost } from '../actions/actions';
+import { getRepo } from '../actions/actions';
 import * as Selectors from '../data/selectors';
 import { withRouter } from 'react-router-dom';
 import * as Services from '../services/services';
@@ -10,17 +10,16 @@ class Single extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    this.props.getPost(id);
+    this.props.getRepo(id);
   }
 
   render() {
-    let post = this.props.post;
+    let repo = this.props.repo;
     return(
       <div className="single">
-        <h3>{post.title}</h3>
-        <small>{post.date}</small>
-        <p>{post.body}</p>
-        <small>{post.author}</small>
+        <h3>{repo.name}</h3>
+        <p>{repo.description}</p>
+        <a href={repo.html_url}>{repo.name}</a>
       </div>
     );
   }
@@ -28,20 +27,20 @@ class Single extends React.Component {
 
 
 Single.propTypes = {
-  post: PropTypes.object.isRequired,
-  getPost: PropTypes.func.isRequired,
+  repo: PropTypes.object.isRequired,
+  getRepo: PropTypes.func.isRequired,
 };
 
 
 const mapStateToProps = (state) => {
   return {
-    post: Selectors.post(state).toJS()
+    repo: Selectors.repo(state).toJS()
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPost: (id) => dispatch(getPost(id))
+    getRepo: (id) => dispatch(getRepo(id))
   }
 }
 

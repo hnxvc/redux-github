@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getPosts } from '../actions/actions';
+import { getRepos } from '../actions/actions';
 import * as Selectors from '../data/selectors';
 import { Link, withRouter} from 'react-router-dom';
 
@@ -11,21 +11,21 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getPosts();
+    this.props.getRepos();
   }
 
   render() {
-    let posts = this.props.posts.map(post => (
+    let repos = this.props.repos.map(post => (
       <li key={post.id}>
-        <h3><Link to={"/single/"+post.id}>{post.title}</Link></h3>
-        <p>{post.excerpt}</p>
-        <small>{post.author}</small>
+        <h3><Link to={"/single/"+post.name}>{post.name}</Link></h3>
+        <p>{post.description}</p>
+        <small>{post.owner['login']}</small>
       </li>
     ))
     return(
       <div className="home">
         <ul>
-          {posts}
+          {repos}
         </ul>
       </div>
     );
@@ -33,20 +33,20 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  getPosts: PropTypes.func.isRequired,
-  posts: PropTypes.array.isRequired
+  getRepos: PropTypes.func.isRequired,
+  repos: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => {
   return {
-    posts: Selectors.posts(state).toJS()
+    repos: Selectors.repos(state).toJS()
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPosts: () => {
-      dispatch(getPosts())
+    getRepos: () => {
+      dispatch(getRepos())
     }
   }
 }

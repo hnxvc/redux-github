@@ -1,9 +1,9 @@
 import * as actionTypes from '../../constants/actionTypes';
 import Immutable from 'immutable';
 
-export const posts  = (state = Immutable.List(), action) => {
+export const repo  = (state = Immutable.Map(), action) => {
   switch(action.type) {
-    case actionTypes.GET_POSTS_LOADED:
+    case actionTypes.GET_POST_LOADED:
       return state.merge(action.data);
   }
   return state;

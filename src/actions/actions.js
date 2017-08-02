@@ -1,13 +1,13 @@
 import * as actionTypes from '../constants/actionTypes';
 import * as services  from '../services/services';
 
-export const getPosts = () => {
+export const getRepos = () => {
   return dispatch => {
     dispatch({
       type: actionTypes.GET_POSTS_LOADING
     });
 
-    services.getPosts(
+    services.getRepos(
       data => {
         dispatch({
           type: actionTypes.GET_POSTS_LOADED,
@@ -25,13 +25,13 @@ export const getPosts = () => {
   }
 }
 
-export const getPost = (id) => {
+export const getRepo = (id) => {
   return dispatch => {
     dispatch({
       type: actionTypes.GET_POST_LOADING,
     });
 
-    services.getPost(
+    services.getRepo(
       id,
       data => {
         dispatch({

@@ -15,6 +15,10 @@ class About extends React.Component {
     let about = this.props.about;
     return(
       <div className="about">
+        <h3>{about.name}</h3>
+        <img src={about.avatar_url} alt={about.name} width="100" height="100"/>
+        <br/>
+        <small>{about.bio}</small>
         <p>{about.intro}</p>
       </div>
     );
